@@ -2,15 +2,19 @@ package au.edu.sydney.brawndo.erp.spfea.products;
 
 import au.edu.sydney.brawndo.erp.ordering.Product;
 
+import java.util.Arrays;
+
 public class ProductImpl implements Product {
 
     private final String name;
-    private final double[] manufacturingData;
     private final double cost;
-    private double[] recipeData;
-    private double[] marketingData;
-    private double[] safetyData;
-    private double[] licensingData;
+//    private final double[] manufacturingData;
+//    private double[] recipeData;
+//    private double[] marketingData;
+//    private double[] safetyData;
+//    private double[] licensingData;
+
+    private final ProductData productData;
 
     public ProductImpl(String name,
                        double cost,
@@ -21,46 +25,54 @@ public class ProductImpl implements Product {
                        double[] licensingData) {
         this.name = name;
         this.cost = cost;
-        this.manufacturingData = manufacturingData;
-        this.recipeData = recipeData;
-        this.marketingData = marketingData;
-        this.safetyData = safetyData;
-        this.licensingData = licensingData;
+//        this.manufacturingData = manufacturingData;
+//        this.recipeData = recipeData;
+//        this.marketingData = marketingData;
+//        this.safetyData = safetyData;
+//        this.licensingData = licensingData;
+
+        this.productData = ProductDataFactory.getProductData(name, cost, manufacturingData, recipeData, marketingData, safetyData, licensingData);
     }
 
     @Override
     public String getProductName() {
-        return name;
+//        System.out.println(name);
+        return this.name;
     }
 
     @Override
     public double getCost() {
-        return cost;
+//        System.out.println(cost);
+        return this.cost;
     }
 
     @Override
     public double[] getManufacturingData() {
-        return manufacturingData;
+//        System.out.println(".........." + Arrays.toString(productData.getManufacturingData()));
+
+        return productData.getManufacturingData();
     }
 
     @Override
     public double[] getRecipeData() {
-        return recipeData;
+//        System.out.println(".........." + Arrays.toString(productData.getRecipeData()));
+
+        return productData.getRecipeData();
     }
 
     @Override
     public double[] getMarketingData() {
-        return marketingData;
+        return productData.getMarketingData();
     }
 
     @Override
     public double[] getSafetyData() {
-        return safetyData;
+        return productData.getSafetyData();
     }
 
     @Override
     public double[] getLicensingData() {
-        return licensingData;
+        return productData.getLicensingData();
     }
 
     @Override
@@ -68,4 +80,16 @@ public class ProductImpl implements Product {
 
         return String.format("%s", name);
     }
+
+//    @Override
+//    public String toString() {
+//        return String.format("Product: %s, Cost: %.2f, ManufacturingData: %s, RecipeData: %s, MarketingData: %s, SafetyData: %s, LicensingData: %s",
+//                name,
+//                cost,
+//                Arrays.toString(productData.getManufacturingData()),
+//                Arrays.toString(productData.getRecipeData()),
+//                Arrays.toString(productData.getMarketingData()),
+//                Arrays.toString(productData.getSafetyData()),
+//                Arrays.toString(productData.getLicensingData()));
+//    }
 }
