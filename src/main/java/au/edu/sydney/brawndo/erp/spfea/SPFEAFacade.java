@@ -136,6 +136,7 @@ public class SPFEAFacade {
 
         List<ContactMethod> contactPriorityAsMethods = new ArrayList<>();
 
+
         if (null != contactPriority) {
             for (String method: contactPriority) {
                 switch (method.toLowerCase()) {
@@ -177,6 +178,7 @@ public class SPFEAFacade {
 
         order.finalise();
         TestDatabase.getInstance().saveOrder(token, order);
+
         return ContactHandler.sendInvoice(token, getCustomer(order.getCustomer()), contactPriorityAsMethods, order.generateInvoiceData());
     }
 
