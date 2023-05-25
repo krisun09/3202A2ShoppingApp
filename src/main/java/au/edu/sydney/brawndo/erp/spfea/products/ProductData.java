@@ -1,5 +1,7 @@
 package au.edu.sydney.brawndo.erp.spfea.products;
 
+import java.util.Arrays;
+
 public class ProductData {
 
     private final double[] manufacturingData;
@@ -38,5 +40,27 @@ public class ProductData {
 
     public double[] getManufacturingData() {
         return manufacturingData;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProductData that = (ProductData) o;
+        return Arrays.equals(manufacturingData, that.manufacturingData) &&
+                Arrays.equals(recipeData, that.recipeData) &&
+                Arrays.equals(marketingData, that.marketingData) &&
+                Arrays.equals(safetyData, that.safetyData) &&
+                Arrays.equals(licensingData, that.licensingData);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Arrays.hashCode(manufacturingData);
+        result = 31 * result + Arrays.hashCode(recipeData);
+        result = 31 * result + Arrays.hashCode(marketingData);
+        result = 31 * result + Arrays.hashCode(safetyData);
+        result = 31 * result + Arrays.hashCode(licensingData);
+        return result;
     }
 }

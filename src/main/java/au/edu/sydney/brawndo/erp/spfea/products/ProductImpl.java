@@ -2,8 +2,6 @@ package au.edu.sydney.brawndo.erp.spfea.products;
 
 import au.edu.sydney.brawndo.erp.ordering.Product;
 
-import java.util.Arrays;
-
 public class ProductImpl implements Product {
 
     private final String name;
@@ -36,27 +34,21 @@ public class ProductImpl implements Product {
 
     @Override
     public String getProductName() {
-//        System.out.println(name);
         return this.name;
     }
 
     @Override
     public double getCost() {
-//        System.out.println(cost);
         return this.cost;
     }
 
     @Override
     public double[] getManufacturingData() {
-//        System.out.println(".........." + Arrays.toString(productData.getManufacturingData()));
-
         return productData.getManufacturingData();
     }
 
     @Override
     public double[] getRecipeData() {
-//        System.out.println(".........." + Arrays.toString(productData.getRecipeData()));
-
         return productData.getRecipeData();
     }
 
@@ -80,16 +72,4 @@ public class ProductImpl implements Product {
 
         return String.format("%s", name);
     }
-
-//    @Override
-//    public String toString() {
-//        return String.format("Product: %s, Cost: %.2f, ManufacturingData: %s, RecipeData: %s, MarketingData: %s, SafetyData: %s, LicensingData: %s",
-//                name,
-//                cost,
-//                Arrays.toString(productData.getManufacturingData()),
-//                Arrays.toString(productData.getRecipeData()),
-//                Arrays.toString(productData.getMarketingData()),
-//                Arrays.toString(productData.getSafetyData()),
-//                Arrays.toString(productData.getLicensingData()));
-//    }
 }
