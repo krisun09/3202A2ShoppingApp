@@ -1,5 +1,6 @@
 package au.edu.sydney.brawndo.erp.spfea;
 
+import au.edu.sydney.brawndo.erp.CustomerProxy;
 import au.edu.sydney.brawndo.erp.auth.AuthModule;
 import au.edu.sydney.brawndo.erp.auth.AuthToken;
 import au.edu.sydney.brawndo.erp.database.TestDatabase;
@@ -109,7 +110,8 @@ public class SPFEAFacade {
             throw new SecurityException();
         }
 
-        return new CustomerImpl(token, id);
+//        return new CustomerImpl(token, id);
+        return new CustomerProxy(token, id);
     }
 
     public boolean removeOrder(int id) {

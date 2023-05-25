@@ -19,9 +19,28 @@ public class CustomerImpl implements Customer {
     private String businessName;
     private String pigeonCoopID;
 
+    private AuthToken token;
+
     public CustomerImpl(AuthToken token, int id) {
 
         this.id = id;
+        this.token = token;
+        loadDataFromDatabase();
+
+//        this.fName = TestDatabase.getInstance().getCustomerField(token, id, "fName");
+//        this.lName = TestDatabase.getInstance().getCustomerField(token, id, "lName");
+//        this.phoneNumber = TestDatabase.getInstance().getCustomerField(token, id, "phoneNumber");
+//        this.emailAddress = TestDatabase.getInstance().getCustomerField(token, id, "emailAddress");
+//        this.address = TestDatabase.getInstance().getCustomerField(token, id, "address");
+//        this.suburb = TestDatabase.getInstance().getCustomerField(token, id, "suburb");
+//        this.state = TestDatabase.getInstance().getCustomerField(token, id, "state");
+//        this.postCode = TestDatabase.getInstance().getCustomerField(token, id, "postCode");
+//        this.merchandiser = TestDatabase.getInstance().getCustomerField(token, id, "merchandiser");
+//        this.businessName = TestDatabase.getInstance().getCustomerField(token, id, "businessName");
+//        this.pigeonCoopID = TestDatabase.getInstance().getCustomerField(token, id, "pigeonCoopID");
+    }
+
+    private void loadDataFromDatabase() {
         this.fName = TestDatabase.getInstance().getCustomerField(token, id, "fName");
         this.lName = TestDatabase.getInstance().getCustomerField(token, id, "lName");
         this.phoneNumber = TestDatabase.getInstance().getCustomerField(token, id, "phoneNumber");
