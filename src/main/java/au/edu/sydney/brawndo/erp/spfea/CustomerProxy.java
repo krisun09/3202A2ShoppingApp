@@ -1,8 +1,7 @@
-package au.edu.sydney.brawndo.erp;
+package au.edu.sydney.brawndo.erp.spfea;
 
 import au.edu.sydney.brawndo.erp.auth.AuthToken;
 import au.edu.sydney.brawndo.erp.ordering.Customer;
-import au.edu.sydney.brawndo.erp.spfea.CustomerImpl;
 
 public class CustomerProxy implements Customer {
     private int id;
