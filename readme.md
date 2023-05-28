@@ -1,5 +1,8 @@
 # Assignment 2: Design Patterns
 
+## Github Link
+https://github.com/krisun09/3202A2ShoppingApp.git
+
 ## Solutions to the Key Issues
 
 ### RAM Issue
@@ -26,16 +29,6 @@ This class should ensure that only one instance of each unique Flyweight object 
   the time required for object creation and garbage collection. 
 
 ### Too Many Orders
-
-#### Alternative Solution (400 words max)
-
-##### Solution Summary
-
-The solution summary goes here, you should describe what changes you have made to the codebase, be specific to the classes and methods you changed and how.
-
-##### Solution Benefit
-
-How did you solution solve the problem, be brief.
 
 ### Bulky Contact Method
 #### Strategy Pattern

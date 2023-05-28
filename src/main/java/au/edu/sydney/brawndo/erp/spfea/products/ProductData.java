@@ -43,6 +43,9 @@ public class ProductData {
     }
 
     @Override
+    /**
+     * compare for value-based equality for instances of ProductData
+     */
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -54,7 +57,11 @@ public class ProductData {
                 Arrays.equals(licensingData, that.licensingData);
     }
 
+
     @Override
+    /**
+     * Generates a hash code value of an instance of ProductData to represent the object's state
+     */
     public int hashCode() {
         int result = Arrays.hashCode(manufacturingData);
         result = 31 * result + Arrays.hashCode(recipeData);

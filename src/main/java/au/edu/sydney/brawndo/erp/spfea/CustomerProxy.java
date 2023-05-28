@@ -3,6 +3,7 @@ package au.edu.sydney.brawndo.erp.spfea;
 import au.edu.sydney.brawndo.erp.auth.AuthToken;
 import au.edu.sydney.brawndo.erp.ordering.Customer;
 
+// The class load and delegate operations to the actual customer objects when information is not yet loaded.
 public class CustomerProxy implements Customer {
     private int id;
     private CustomerImpl customer;
@@ -13,6 +14,9 @@ public class CustomerProxy implements Customer {
         this.id = id;
     }
 
+    /**
+     * Loads the actual customer object when a method is called on the proxy for the information.
+     */
     private void ensureCustomerLoaded() {
         if (customer == null) {
             customer = new CustomerImpl(this.authToken, id);

@@ -14,6 +14,7 @@ public class ContactHandler {
 
     private static final Map<ContactMethod, InvoiceSender> senderMap = new HashMap<>();
 
+    // A mapping to bind corresponding ContactMethod to InvoiceSender implementations.
     static {
         senderMap.put(ContactMethod.SMS, new SMSSender());
         senderMap.put(ContactMethod.MAIL, new MailSender());
@@ -27,6 +28,7 @@ public class ContactHandler {
         for (ContactMethod method : priority) {
             InvoiceSender sender = senderMap.get(method);
             if (sender != null) {
+                // Using the Strategy pattern to sendInvoice()
                 sender.sendInvoice(token, customer, data);
                 return true;
             }
